@@ -110,7 +110,7 @@ table {
 												value="${_csrf.token}" />
 										</form>
 									</c:if></li>
-								<li><a onclick="document.forms['logoutForm'].submit()">Logout</a></li>
+								<li><button class="btn btn-link"><a onclick="document.forms['logoutForm'].submit()">Logout</a></button></li>
 
 							</ul>
 						</nav>

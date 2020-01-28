@@ -78,7 +78,7 @@ th, td {
 							                 value="${_csrf.token}" />
 				                   	</form>
 				                    </c:if></li>
-				                <li><a onclick="document.forms['logoutForm'].submit()">Logout</a></li>
+				                <li><button class="btn btn-link"><a onclick="document.forms['logoutForm'].submit()">Logout</a></button></li>
 							</ul>
 						</nav>
 						<!-- .site-navigation -->
@@ -150,8 +150,8 @@ th, td {
 					<table class="table table-bordered table-striped table-hover"
 						align="left">
 						<tr>
-							<th>LabName</th>
-							<th>LabLocation</th>
+							<th>Lab Name</th>
+							<th>Lab Location</th>
 						</tr>
 						<c:forEach var="obj" items="${AllLabdetails}">
 							<tr>
@@ -173,7 +173,7 @@ th, td {
 					<table class="table table-bordered table-striped table-hover"
 						align="left">
 						<tr>
-							<th>TestName</th>
+							<th>Test Name</th>
 
 						</tr>
 						<c:forEach var="obj" items="${AllTestdetails}">

@@ -226,7 +226,7 @@ public class UserController {
 		model.addAttribute("AllLabdetails", labservice.findAll());
 		model.addAttribute("AllTestdetails", service.findAll());
 
-		return "Home";
+		return "redirect:/Home";
 
 	}
 
@@ -242,7 +242,7 @@ public class UserController {
 		model.addAttribute("AllLabdetails", labservice.findAll());
 		model.addAttribute("AllTestdetails", service.findAll());
 
-		return "Home";
+		return "redirect:/welcome";
 
 	}
 
@@ -271,7 +271,7 @@ public class UserController {
 		model.addAttribute("AllLabdetails", labservice.findAll());
 		model.addAttribute("AllTestdetails", service.findAll());
 
-		return "Home";
+		return "redirect:/Home";
 
 	}
 
@@ -287,7 +287,7 @@ public class UserController {
 		model.addAttribute("AllLabdetails", labservice.findAll());
 		model.addAttribute("AllTestdetails", service.findAll());
 
-		return "Home";
+		return "redirect:/Home";
 
 	}
 

@@ -17,14 +17,116 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="${contextPath}/css/bootstrap.min.css">
+
+<link rel="stylesheet" type="text/css"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="${contextPath}/css/swiper.min.css">
+
+<!-- Styles -->
+<link rel="stylesheet" href="${contextPath}/css/style.css">
+<script src="${contextPath}/js/custom.js"></script>
+
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Update Test</title>
 </head>
 <body>
-<c:if test="${pageContext.request.userPrincipal.name != 'administrator'}">
-<c:redirect url="userWelcome"/>
-</c:if>
-<nav class="navbar" style="background-color: body">
+
+<header class="site-header">
+		<div class="nav-bar">
+			<div class="container">
+				<div class="row">
+					<div
+						class="col-12 d-flex flex-wrap justify-content-between align-items-center">
+						<div class="site-branding d-flex align-items-center">
+							<b><a class="d-block" href="${contextPath}/Home" rel="home">EM
+									DIAGNOS</a></b>
+						</div>
+						<!-- .site-branding -->
+
+						<nav
+							class="site-navigation d-flex justify-content-end align-items-center">
+							<ul
+								class="d-flex flex-column flex-lg-row justify-content-lg-end align-items-center">
+								<li class="current-menu-item"><a href="${contextPath}/Home">Home</a></li>
+
+								<li><a href="${contextPath}/addTest">Add Test</a></li>
+								<li><a href="${contextPath}/addLab">Add Lab</a></li>
+								<li><a href="${contextPath}/assignbutton">SetUp</a></li>
+								<li><a href="${contextPath}/bookings">Bookings</a></li>
+
+								<!-- <li class="call-btn button gradient-bg mt-3 mt-md-0"><a
+									class="d-flex justify-content-center align-items-center"
+									href="#"><img src="images/emergency-call.png"> +34
+										586 778 8892</a></li> -->
+								<li><c:if
+										test="${pageContext.request.userPrincipal.name != null}">
+										<form id="logoutForm" method="POST"
+											action="${contextPath}/logout">
+											<input type="hidden" name="${_csrf.parameterName}"
+												value="${_csrf.token}" />
+										</form>
+									</c:if></li>
+								<li><button class="btn btn-link"><a onclick="document.forms['logoutForm'].submit()">Logout</a></button></li>
+							</ul>
+						</nav>
+						<!-- .site-navigation -->
+
+						<div class="hamburger-menu d-lg-none">
+							<span></span> <span></span> <span></span> <span></span>
+						</div>
+						<!-- .hamburger-menu -->
+					</div>
+					<!-- .col -->
+				</div>
+				<!-- .row -->
+			</div>
+			<!-- .container -->
+		</div>
+		<!-- .nav-bar -->
+
+		<div class="swiper-container hero-slider">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide hero-content-wrap"
+					style="background-image: url('${contextPath}/images/hero.jpg')">
+					<div class="hero-content-overlay position-absolute w-100 h-100">
+						<div class="container h-100">
+							<div class="row h-100">
+								<div
+									class="col-12 col-lg-6 d-flex flex-column justify-content-center align-items-start">
+									<header class="entry-header">
+										<h1>
+											The Best <br>Medical Services
+										</h1>
+									</header>
+									<!-- .entry-header -->
+
+									<div class="entry-content mt-4"></div>
+									<!-- .entry-content -->
+
+									<footer
+										class="entry-footer d-flex flex-wrap align-items-center mt-4">
+										<a href="${contextPath}/bookings" class="button gradient-bg">Bookings</a>
+									</footer>
+									<!-- .entry-footer -->
+								</div>
+								<!-- .col -->
+							</div>
+							<!-- .row -->
+						</div>
+						<!-- .container -->
+					</div>
+					<!-- .hero-content-overlay -->
+				</div>
+
+			</div>
+		</div>
+	</header>
+<%-- <nav class="navbar" style="background-color: body">
 
 		<div class="container">
 			<div class="navbar-header">
@@ -54,26 +156,34 @@
 			<br> <br>
 		</div>
 	</nav>
-	<hr>
+	<hr> --%>
 
 
 
 	<div class="container">
+	<hr>
+	<h1 align="left" style="font-weight: bolder;">UPDATE TEST
+			DETAILS</h1>
+			<br>
 		<form:form action="${contextPath}/${tests.tId}/Updatetest" modelAttribute="tests"
-			method="post">
-			<div>${tests.tId}</div>
+			method="post" >
+			<%-- <div>${tests.tId}</div> --%>
 			<div class="col-sm-3">
 				<form:label path="testName" class="form-control">Test Name</form:label>
 				<form:input type="text" id="testName" path="testName" />
 				<form:errors path="testName" />
 			</div>
+			<br>
 			<div>
 				<div>
-					<input type="submit" value="Update Test" class="btn btn-primary">
+					<input type="submit" value="Update Test" class="button gradient-bg">
 				</div>
 			</div>
 		</form:form>
-
+		<br>
+		<br>
+        <br>
+        <br>
 	</div>
 
 </body>
