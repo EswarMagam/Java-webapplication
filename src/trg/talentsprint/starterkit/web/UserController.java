@@ -124,10 +124,10 @@ public class UserController {
 		List<Booking> mybookings = bookingservice.findBookingsByUserName(username);
 
 		model.addAttribute("mybookings", mybookings);
-		System.out.println(username);
-		for (int i = 0; i < mybookings.size(); i++) {
-			System.out.println(mybookings.get(i).getBid());
-		}
+		/*
+		 * System.out.println(username); for (int i = 0; i < mybookings.size(); i++) {
+		 * System.out.println(mybookings.get(i).getBid()); }
+		 */
 		model.addAttribute("AllLabdetails", labservice.findAll());
 		model.addAttribute("AllTestdetails", service.findAll());
         
@@ -396,22 +396,7 @@ public class UserController {
 
 	}
 
-	/*
-	 * @GetMapping("/bookings") public String bookings(Model model) {
-	 * 
-	 * List<Booking> bookings = bookingservice.findAllDetails();
-	 * 
-	 * 
-	 * for(int i=0;i<bookings.size();i++) {
-	 * System.out.println("userdetalis"+bookings.get(i).getUserDetails()); }
-	 * 
-	 * 
-	 * model.addAttribute("bookings", bookings);
-	 * 
-	 * return "AllBookings";
-	 * 
-	 * }
-	 */
+	
 	@GetMapping("/bookings")
 	public String bookings(Model model) {
 
@@ -453,13 +438,14 @@ public class UserController {
 
 	}
 
-	@GetMapping("/{path}/view")
-	public String viewprescription(@PathVariable String path, Model model) {
-
-		model.addAttribute("images", path);
-		return "View";
-
-	}
+	/*
+	 * @GetMapping("/{path}/view") public String viewprescription(@PathVariable
+	 * String path, Model model) {
+	 * 
+	 * model.addAttribute("images", path); return "View";
+	 * 
+	 * }
+	 */
 
 	/*
 	 * @GetMapping("/index") public String index(Model model) {
