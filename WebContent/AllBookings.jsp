@@ -26,26 +26,28 @@ th {
 table {
 	width: 30px;
 }
+
 .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  padding-top: 60px;
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0, 0, 0); /* Fallback color */
+	background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+	padding-top: 60px;
 }
 /* Modal Content/Box */
 .modal-content {
-  background-color: #fefefe;
-  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
-  display:block;
+	background-color: #fefefe;
+	margin: 5% auto 15% auto;
+	/* 5% from the top, 15% from the bottom and centered */
+	border: 1px solid #888;
+	width: 80%; /* Could be more or less, depending on screen size */
+	display: block;
 }
 </style>
 <meta charset="UTF-8">
@@ -68,7 +70,7 @@ table {
 <script src="${contextPath}/js/custom.js"></script>
 </head>
 <body>
-	
+
 	<br>
 
 	<header class="site-header">
@@ -78,7 +80,8 @@ table {
 					<div
 						class="col-12 d-flex flex-wrap justify-content-between align-items-center">
 						<div class="site-branding d-flex align-items-center">
-							<b><a class="d-block" href="${contextPath}/Home" rel="home">EM DIAGNOS</a></b>
+							<b><a class="d-block" href="${contextPath}/Home" rel="home">EM
+									DIAGNOS</a></b>
 						</div>
 						<!-- .site-branding -->
 
@@ -166,7 +169,7 @@ table {
 
 
 
-<br>
+	<br>
 	<h1 align="center" style="font-weight: bolder;">BOOKINGS</h1>
 	<br>
 	<div class="mx-auto" style="width: 80%;">
@@ -182,7 +185,7 @@ table {
 				<th>Status</th>
 			</tr>
 			<c:forEach var="obj" items="${bookings}">
-				<tr style="font: bold;font-family: sans-serif;">
+				<tr style="font: bold; font-family: sans-serif;">
 					<%-- <td>${obj.bid}</td> --%>
 					<td>${obj.uName}</td>
 					<td>${obj.userDetails}</td>
@@ -190,25 +193,24 @@ table {
 					<td>${obj.lName}</td>
 					<td>${obj.tName}</td>
 					<%-- <td><a href="${contextPath}/${obj.path}/view">View</a></td> --%>
-					<td><button type="button" class="btn btn-sm" data-toggle="modal"
-									data-target="#${obj.bid}">View Prescription</button>
-					
-					<div id="${obj.bid}" class="modal fade">
-						<!-- id = "${b.bid}" - because to view all prescriptions based on id -->
-						<div class="modal-dialog" align="center" style="width:1250px">
-							<div class="modal-content">
-								<div class="modal-header">
-								<hr>
-									<button type="button" class="close" data-dismiss="modal"
-										aria-hidden="true">&times;</button>
+					<td><button type="button" class="btn btn-sm"
+							data-toggle="modal" data-target="#${obj.bid}">View
+							Prescription</button>
+
+						<div id="${obj.bid}" class="modal fade">
+							<!-- id = "${b.bid}" - because to view all prescriptions based on id -->
+							<div class="modal-dialog" align="center" style="width: 1250px">
+								<div class="modal-content">
+									<div class="modal-header">
+										<hr>
+										<button type="button" class="close" data-dismiss="modal"
+											aria-hidden="true">&times;</button>
+									</div>
+									<img src="${contextPath}/upload/${obj.path}" width="400"
+										height="300" />
 								</div>
-								<img src="${contextPath}/upload/${obj.path}" width="400"
-									height="300" />
 							</div>
-						</div>
-					</div>
-                    
-                    </td>
+						</div></td>
 
 
 					<%-- <td><img src="${contextPath}/upload/${obj.path}" width="80" height="80"/></td> --%>
@@ -241,9 +243,7 @@ table {
 
 			</c:forEach>
 		</table>
-		<br>
-		<br>
-		<br>
+		<br> <br> <br>
 	</div>
 </body>
 </html>
