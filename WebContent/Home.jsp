@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
+<meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -23,34 +24,37 @@
 <link rel="stylesheet" href="${contextPath}/css/style.css">
 <script src="${contextPath}/js/custom.js"></script>
 
-    <meta charset="utf-8">
-    <title>AdminWelcome</title>
-    <link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
-<style>
-form {
-align:center;
 
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+table, th, td {
+	border: 1px solid black;
+	border-collapse: collapse;
+	cellpadding
+}
+
+th, td {
+	padding: 15px;
 }
 </style>
-    
+
+<meta charset="UTF-8">
+<title>LabsAndTests</title>
 </head>
-<c:if test="${pageContext.request.userPrincipal.name != 'administrator'}">
-<c:redirect url="userWelcome"/>
-</c:if>
 <body>
-<div>
-
-
-
-</div>
-<header class="site-header">
+	<header class="site-header">
 		<div class="nav-bar">
 			<div class="container">
 				<div class="row">
 					<div
 						class="col-12 d-flex flex-wrap justify-content-between align-items-center">
 						<div class="site-branding d-flex align-items-center">
-							<b><a class="d-block" href="${contextPath}/welcome" rel="home">EM DIAGNOS</a></b>
+							<b><a class="d-block" href="${contextPath}/Home" rel="home">EM DIAGNOS</a></b>
 						</div>
 						<!-- .site-branding -->
 
@@ -109,7 +113,7 @@ align:center;
 									<!-- .entry-header -->
 
 									<div class="entry-content mt-4">
-									
+										
 									</div>
 									<!-- .entry-content -->
 
@@ -127,46 +131,71 @@ align:center;
 					</div>
 					<!-- .hero-content-overlay -->
 				</div>
-</div>
-</div>
-</header>
+				<!-- .hero-content-wrap -->
+
+	</header>
+	
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="${contextPath}/resources/js/bootstrap.min.js"></script>
 
 
-  <div class="container">
-    <c:if test="${pageContext.request.userPrincipal.name != null}">
-        <form id="logoutForm" method="POST" action="${contextPath}/logout">
-            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-        </form>
+	<div>
+		<div>
+			<br> <br> <br> <br> <br>
+			<hr>
+			<div>
+				<div class="container">
+					<h3>Labs List</h3>
+					<table class="table table-bordered table-striped table-hover"
+						align="left">
+						<tr>
+							<th>LabName</th>
+							<th>LabLocation</th>
+						</tr>
+						<c:forEach var="obj" items="${AllLabdetails}">
+							<tr>
+								<td>${obj.labName}</td>
+								<td>${obj.labLocation}</td>
+								<td><a href="${contextPath}/${obj.labId}">Update</a>
+									<form action="${contextPath}/${obj.labId}/delete" method="get">
+										<input type="submit" value="Delete" class="btn btn-primary">
+									</form></td>
+							</tr>
 
-<%--         <h2>Welcome ${pageContext.request.userPrincipal.name} | <a onclick="document.forms['logoutForm'].submit()">Logout</a></h2>
- --%>    </c:if>
-  </div>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  <script src="${contextPath}/resources/js/bootstrap.min.js"></script>
+						</c:forEach>
+					</table>
 
+					&nbsp;&nbsp;&nbsp;
 
-<h1 align="center">UPDATE / DELETE (Labs & Tests)</h1>
-   
-   <div align="center">
-   <p> If any errors occured while Adding labs and/or Tests UPDATE Here</p>
-   </div>
-   <center>
-  <form action="${contextPath}/updateOrdelete">
-  <input type="submit" value="Update/Delete" class="button gradient-bg">
-  
-  </form>
-  </center>
-  
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  
-  
- 
-  
-  
-  
+					<h3>Tests List</h3>
+
+					<table class="table table-bordered table-striped table-hover"
+						align="left">
+						<tr>
+							<th>TestName</th>
+
+						</tr>
+						<c:forEach var="obj" items="${AllTestdetails}">
+							<tr>
+								<td>${obj.testName}</td>
+								<td><a href="${contextPath}/${obj.tId}/testid">Update</a>
+									<form action="${contextPath}/${obj.tId}/deletetest"
+										method="get">
+										<input type="submit" value="Delete" class="btn btn-primary">
+									</form></td>
+							</tr>
+
+						</c:forEach>
+					</table>
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<hr>
+	<br>
+	<br>
 </body>
 </html>
